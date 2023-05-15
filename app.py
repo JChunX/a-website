@@ -128,4 +128,4 @@ if __name__ == '__main__':
     debug = args.debug
     print("Running on {}:{}".format(ip, port))
     print("Debug mode: {}".format(debug))
-    app.run(host=ip, port=port, debug=debug)
+    app.run(host="0.0.0.0", port=port, debug=debug)
