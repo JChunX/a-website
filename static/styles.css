@@ -1,0 +1,49 @@
+body {
+    font-family: sans-serif;
+}
+
+footer {
+  width: 800px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.markdown-content {
+  width: 800px;
+  margin: 0 auto;
+}
+.intro {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.query-interface {
+  width: 800px;
+  margin: 0 auto;
+}
+#query-input {
+  width: 400px;
+  white-space: normal;
+}
+
+.form-input-container {
+  display: flex;
+  align-items: center;
+}
+
+#query-input {
+  margin-right: 10px;
+}
+
+#loading-icon {
+  margin-left: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.0em;
+  margin-bottom: 1.0em;
+}
+
+img {
+  border-radius: 10px;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jason's Website</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+</head>
+<body>
+
+    <div class="intro">
+        <h1 style="display: flex; align-items: center;">
+            <strong>JASON X</strong>
+            <img src="static/images/jason.png" width="50" style="margin-left: 20px;" />
+        </h1>
+        <p>
+            Robotics @ Penn GRASP
+            <br/>
+
+            Deep Learning / Computer Vision Intern @ 
+            <a href="https://kodiak.ai" target="_blank">Kodiak Robotics</a>
+        </p>
+        <p>
+            Email: 
+            <a href="mailto:jchunx@seas.upenn.edu" target="_blank">jchunx@seas.upenn.edu</a>
+            <br/>
+
+            LinkedIn: 
+            <a href="https://linkedin.com/in/jia-chun-xie" target="_blank">Jason Xie</a>
+            <br/>
+
+            GitHub: 
+            <a href="https://github.com/JChunX" target="_blank">JChunX</a>
+        </p>
+    </div>
+
+    <div class="query-interface">
+        <h3>Try: Q&A with JasonGPT🤖</h3>
+        <p style="color: grey;">
+            Examples:
+            <br/>
+            Q: Is Jason a good fit for role X?
+            <br/>
+            Q: Show me a photo of Jason's F1Tenth project.
+            <br/>
+            Q: Tell me about a project where Jason used ROS2.
+            <br/>
+            
+            <small>Note: GPT models may produce innaccurate responses.</small>
+        </p>
+        <div id="query-result"></div>
+        <form id="query-form">
+            <div class="form-input-container">
+                <input type="text" id="query-input" placeholder="Send a message." />
+                <button type="submit" id="submit-button">Submit</button>
+                <div id="loading-icon" style="display: none;">
+                    <img src="{{ url_for('static', filename='loading.gif') }}" width="16" />
+                </div>
+            </div>
+        </form>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            // Handle form submission using AJAX
+            $('#query-form').submit(function(event) {
+                event.preventDefault(); // Prevent the form from submitting normally
+
+                var query = $('#query-input').val(); // Get the query input value
+
+                // Disable the submit button and show the loading icon
+                $('#submit-button').prop('disabled', true);
+                $('#loading-icon').show();
+
+                // Send an AJAX POST request to the server
+                $.ajax({
+                    url: '/query',
+                    type: 'POST',
+                    data: {query: query},
+                    success: function(response) {
+                        // Update the query result div with the response
+                        $('#query-result').html(response.result);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    },
+                    complete: function() {
+                        // Re-enable the submit button and hide the loading icon
+                        $('#submit-button').prop('disabled', false);
+                        $('#loading-icon').hide();
+                    }
+                });
+            });
+        </script>
+    </div>
+
+    <div class="markdown-content">{{ content|safe }}</div>
+
+    <footer>
+
+    </footer>
+</body>
+</html>
