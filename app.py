@@ -1,8 +1,10 @@
+import argparse
+import os
+import time
 from pathlib import Path
 
 import markdown
 import openai
-import time
 from flask import Flask, jsonify, render_template, request
 
 
@@ -64,6 +66,8 @@ class JasonGPT:
             finish_reason = response.choices[0].finish_reason
             if finish_reason == 'length':
                 response_str += "..."
+            if response_str[0] == '#':
+                response_str = '\n' + response_str
         except Exception as e:
             print(e)
             response_str = "Sorry, I am currently unable to answer this question. Please try again later."
@@ -112,6 +116,16 @@ def process_query():
     return jsonify({'result': result_html})
 
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--ip', type=str, default="0.0.0.0")
+parser.add_argument('--debug', action='store_true')
+args = parser.parse_args()
+
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    ip = args.ip
+    debug = args.debug
+    print("Running on {}:{}".format(ip, port))
+    print("Debug mode: {}".format(debug))
+    app.run(host=ip, port=port, debug=debug)

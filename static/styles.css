@@ -1,20 +1,40 @@
 body {
     font-family: sans-serif;
+    color: #414141;
+}
+
+a {
+  color: #414141; /* Dark blue color */
 }
 
 footer {
-  width: 800px;
-  height: 300px;
+
+  height: 50px;
   margin: 0 auto;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #666;
 }
+
 
 .markdown-content {
   width: 800px;
   margin: 0 auto;
+  padding-bottom: 50px;
 }
 .intro {
   width: 800px;
   margin: 0 auto;
+}
+
+#query-io-container {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .query-interface {

@@ -39,25 +39,27 @@
         <p style="color: grey;">
             Examples:
             <br/>
-            Q: Is Jason a good fit for role X?
+            Q: Is Jason <b>a good fit</b> for role X?
             <br/>
-            Q: Show me a photo of Jason's F1Tenth project.
+            Q: Show me a <b>photo</b> of Jason's F1Tenth project.
             <br/>
-            Q: Tell me about a project where Jason used ROS2.
+            Q: Tell me about a project where Jason <b>used ROS2</b>.
             <br/>
             
-            <small>Note: GPT models may produce innaccurate responses.</small>
+            <small>Note: LLMs like JasonGPT may produce innaccurate responses.</small>
         </p>
-        <div id="query-result"></div>
-        <form id="query-form">
-            <div class="form-input-container">
-                <input type="text" id="query-input" placeholder="Send a message." />
-                <button type="submit" id="submit-button">Submit</button>
-                <div id="loading-icon" style="display: none;">
-                    <img src="{{ url_for('static', filename='loading.gif') }}" width="16" />
+        <div id="query-io-container">
+            <div id="query-result"></div>
+            <form id="query-form">
+                <div class="form-input-container">
+                    <input type="text" id="query-input" placeholder="Send a message." />
+                    <button type="submit" id="submit-button">Submit</button>
+                    <div id="loading-icon" style="display: none;">
+                        <img src="{{ url_for('static', filename='loading.gif') }}" width="16" />
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
@@ -96,7 +98,7 @@
     <div class="markdown-content">{{ content|safe }}</div>
 
     <footer>
-
+        <p>Website created by Jason Xie, May 2023</p>
     </footer>
 </body>
 </html>
