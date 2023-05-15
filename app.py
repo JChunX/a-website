@@ -23,6 +23,8 @@ class JasonGPT:
         self.knowledge_cutoff_date = '2023-05-14'
         self.system_prompt = self.create_system_prompt()
         self.query_prompt = Path('gpt/query_prompt.txt').read_text()
+        self.max_tokens = 300
+        self.temperature = 0.4
         self.reset()
         
     def reset(self):
@@ -59,8 +61,8 @@ class JasonGPT:
             response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=self.create_chat_history_prompt() + [{"role": "user", "content": query + self.query_prompt}],
-                max_tokens=150,
-                temperature=0.4,
+                max_tokens=self.max_tokens,
+                temperature=self.temperature,
             )
             response_str = response.choices[0].message.content
             finish_reason = response.choices[0].finish_reason
@@ -116,16 +118,6 @@ def process_query():
     return jsonify({'result': result_html})
 
 
-# parser = argparse.ArgumentParser()
-# parser.add_argument('--ip', type=str, default="0.0.0.0")
-# parser.add_argument('--debug', action='store_true')
-# args = parser.parse_args()
-
-
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    #ip = args.ip
-    #debug = args.debug
-    #print("Running on {}:{}".format(ip, port))
-    #print("Debug mode: {}".format(debug))
     app.run(host="0.0.0.0", port=port, debug=True)

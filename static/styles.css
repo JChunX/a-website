@@ -20,7 +20,6 @@ footer {
   color: #666;
 }
 
-
 .markdown-content {
   width: 800px;
   margin: 0 auto;
@@ -34,6 +33,10 @@ footer {
 #query-io-container {
   background-color: #f2f2f2;
   border-radius: 5px;
+  padding: 10px;
+}
+
+#query-result {
   padding: 10px;
 }
 
