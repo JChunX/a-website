@@ -21,7 +21,7 @@ How: Implement a robust, safe, and fast autonomy stack on the NVIDIA Jetson edge
 
 What we did:
 
-- Perception: Convolutional LiDAR outlier rejection, Hardware-accelerated Bresenham collision detection, Obstacle tracking, Neural object detection
+- Perception: Convolutional LiDAR outlier rejection, Hardware-accelerated Bresenham collision detection, Obstacle tracking, Neural object detection with TensorRT
 - Planning: Custom frenet frame planner, Direct collocation + mininum curvature trajectory optimization, RRT*
 - Control: Hardware-accelerated LQR, Adaptive cruise control, Disparity-extended gap-following, Time-to-collision based obstacle avoidance
 - Operations: Custom telemetry bringup and recording, Visualization on Foxglove Studio
