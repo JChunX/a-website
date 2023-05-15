@@ -25,6 +25,7 @@ class JasonGPT:
         self.query_prompt = Path('gpt/query_prompt.txt').read_text()
         self.max_tokens = 300
         self.temperature = 0.4
+        self.max_history = 5
         self.reset()
         
     def reset(self):
@@ -74,8 +75,14 @@ class JasonGPT:
             print(e)
             response_str = "Sorry, I am currently unable to answer this question. Please try again later."
             
+        self.add_to_chat_history(query, response_str)
+    
+    def add_to_chat_history(self, query, response_str):
         self.responses.append(response_str)
         self.queries.append(query)    
+        if len(self.responses) > self.max_history:
+            self.responses.pop(0)
+            self.queries.pop(0)
         
     def create_chat_history_prompt(self):
         chat_history_prompt = []
