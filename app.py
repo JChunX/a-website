@@ -96,8 +96,8 @@ class JasonGPT:
     def render_conversation(self):
         conversation = ""
         for i in range(len(self.responses)):
-            conversation += markdown.markdown(f"**{self.user_alias}**: {self.queries[i]}<br />")
-            conversation += markdown.markdown(f"**{self.gpt_name}**: {self.responses[i]}<br /><br />\n\n")
+            conversation += f"**{self.user_alias}**: {self.queries[i]}<br />"
+            conversation += f"**{self.gpt_name}**: {self.responses[i]}<br /><br />\n\n"
             
         print(conversation)
         return conversation
@@ -120,8 +120,8 @@ def process_query():
     query = request.form['query']
     # Process the query and return the result
     gpt.process_query_logic(query)
-    result_html = gpt.render_conversation()
-    #result_html = markdown.markdown(result)
+    result = gpt.render_conversation()
+    result_html = markdown.markdown(result)
     return jsonify({'result': result_html})
 
 
