@@ -116,16 +116,16 @@ def process_query():
     return jsonify({'result': result_html})
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--ip', type=str, default="0.0.0.0")
-parser.add_argument('--debug', action='store_true')
-args = parser.parse_args()
+# parser = argparse.ArgumentParser()
+# parser.add_argument('--ip', type=str, default="0.0.0.0")
+# parser.add_argument('--debug', action='store_true')
+# args = parser.parse_args()
 
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    ip = args.ip
-    debug = args.debug
-    print("Running on {}:{}".format(ip, port))
-    print("Debug mode: {}".format(debug))
-    app.run(host="0.0.0.0", port=port, debug=debug)
+    #ip = args.ip
+    #debug = args.debug
+    #print("Running on {}:{}".format(ip, port))
+    #print("Debug mode: {}".format(debug))
+    app.run(host="0.0.0.0", port=port, debug=True)
