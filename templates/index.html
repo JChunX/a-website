@@ -36,7 +36,7 @@
 
             Resume:
             <a href="https://www.dropbox.com/s/b303wyq8ttvoy3j/jasonxie_resume_v2.pdf?dl=0" target="_blank">PDF</a>
-
+            
         </p>
     </div>
 
@@ -70,33 +70,47 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
             // Handle form submission using AJAX
-            $('#query-form').submit(function(event) {
+            $('#query-form').submit(async function(event) {
                 event.preventDefault(); // Prevent the form from submitting normally
-
+        
                 var query = $('#query-input').val(); // Get the query input value
-
+        
                 // Disable the submit button and show the loading icon
                 $('#submit-button').prop('disabled', true);
                 $('#loading-icon').show();
+        
+                try {
+                    let response = await fetch('/query', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'query=' + encodeURIComponent(query),
+                    });
+        
+                    let reader = response.body.getReader();
+                    let decoder = new TextDecoder();
+        
+                    let result = "";
+        
+                    while (true) {
+                        let { value, done } = await reader.read();
+        
+                        if (done) break;
+        
+                        let chunk = decoder.decode(value);
 
-                // Send an AJAX POST request to the server
-                $.ajax({
-                    url: '/query',
-                    type: 'POST',
-                    data: {query: query},
-                    success: function(response) {
-                        // Update the query result div with the response
-                        $('#query-result').html(response.result);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Error:', error);
-                    },
-                    complete: function() {
-                        // Re-enable the submit button and hide the loading icon
-                        $('#submit-button').prop('disabled', false);
-                        $('#loading-icon').hide();
+                        $('#query-result').html(chunk);
+                        
+
                     }
-                });
+                } catch (error) {
+                    console.error('Error:', error);
+                } finally {
+                    // Re-enable the submit button and hide the loading icon
+                    $('#submit-button').prop('disabled', false);
+                    $('#loading-icon').hide();
+                }
             });
         </script>
     </div>

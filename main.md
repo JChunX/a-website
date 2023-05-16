@@ -54,7 +54,7 @@ Improved the robustness of a normalizing-flow based lidar localization system (L
 We are interested in the problem of transitioning between two different gaits for a quadruped robot. Building upon an existing convex MPC method for gait planning, we extend it to handle gait transitions by planning over multiple potential next gait states.
 
 ### **Mini Minecraft** - Summer 2022
-<img src="static/images/mini_mc.png" width="600"/>
+<img src="static/images/mini_mc.png" alt="panoramic view of mini minecraft game footage" width="600"/>
 
 **Technologies:** C++, OpenGL
 

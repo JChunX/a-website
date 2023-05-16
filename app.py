@@ -5,7 +5,7 @@ from pathlib import Path
 
 import markdown
 import openai
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, Response
 
 
 # Function to read Markdown file
@@ -42,7 +42,8 @@ class JasonGPT:
                     {"role": "system", "content": "You are a helpful assistant."},
                     {"role": "user", "content": 
                         "Please simplify the following text into concise bullet points: {}".format(text)},
-                ]
+                ],
+            stream=True
             )
         
         text = response.choices[0].message.content
@@ -59,23 +60,54 @@ class JasonGPT:
     
     def process_query_logic(self, query):
         try:
+            prev_conversation = self.render_conversation()
+            prev_conversation += f"**{self.user_alias}**: {query} <br />"
+            prev_conversation += f"**{self.gpt_name}**: "
+            
+            response_stream = prev_conversation
+            
             response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=self.create_chat_history_prompt() + [{"role": "user", "content": query + self.query_prompt}],
                 max_tokens=self.max_tokens,
                 temperature=self.temperature,
+                stream=True
             )
-            response_str = response.choices[0].message.content
-            finish_reason = response.choices[0].finish_reason
-            if finish_reason == 'length':
-                response_str += "..."
-            if response_str[0] == '#' or response_str[0] == '*':
-                response_str = '\n' + response_str
+            i = 0
+            current_response = ''
+            yield_hold = False
+            for chunk in response:
+                response_str = chunk['choices'][0].get('delta', {}).get('content')
+                
+                if response_str is not None:
+                    finish_reason = chunk['choices'][0].get('finish_reason')
+                    print(response_str.replace('\n', '\\n'))
+                    
+                    if finish_reason == 'length':
+                        response_str += "..."
+                    if i == 0 and (response_str[0] == '#' or response_str[0] == '*'):
+                        response_str = '\n' + response_str
+                    
+                    # if response_str contains <img, dont yield yet
+                    if '<img' in response_str:
+                        yield_hold = True
+                        yield response_stream + '\n...'
+                    if yield_hold and '/>' in response_str:
+                        yield_hold = False
+                        
+                    response_stream += response_str
+                    current_response += response_str
+                    i += 1
+                    
+                    if not yield_hold:
+                        yield response_stream
+                    
+            self.add_to_chat_history(query, current_response)
+                
         except Exception as e:
             print(e)
-            response_str = "Sorry, I am currently unable to answer this question. Please try again later."
-            
-        self.add_to_chat_history(query, response_str)
+            response_str = "\n\nSorry, I am currently unable to answer this question. Please try again later."
+            yield response_str
     
     def add_to_chat_history(self, query, response_str):
         self.responses.append(response_str)
@@ -106,6 +138,10 @@ class JasonGPT:
 app = Flask(__name__)
 gpt = JasonGPT()
 
+def generate_response(query):
+    for response in gpt.process_query_logic(query):
+        yield markdown.markdown(response)
+
 # Route for the home page
 @app.route('/')
 def home():
@@ -118,13 +154,9 @@ def home():
 @app.route('/query', methods=['POST'])
 def process_query():
     query = request.form['query']
-    # Process the query and return the result
-    gpt.process_query_logic(query)
-    result = gpt.render_conversation()
-    result_html = markdown.markdown(result)
-    return jsonify({'result': result_html})
-
+    # Process the query and yield the result in text
+    return Response(generate_response(query), mimetype='text/plain')
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host="127.0.0.1", port=port, debug=True)
