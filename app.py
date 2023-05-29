@@ -81,7 +81,6 @@ class JasonGPT:
                 
                 if response_str is not None:
                     finish_reason = chunk['choices'][0].get('finish_reason')
-                    print(response_str.replace('\n', '\\n'))
                     
                     if finish_reason == 'length':
                         response_str += "..."
@@ -159,4 +158,4 @@ def process_query():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host="127.0.0.1", port=port, debug=True)
+    app.run(host="0.0.0.0", port=port, debug=True)
