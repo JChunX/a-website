@@ -12,6 +12,7 @@ gunicorn -b 127.0.0.1:5000 app:app
 ## Deploy
 
 ```bash
-git push heroku master
+heroku login
+git push heroku main
 heroku open
 ```
