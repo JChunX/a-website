@@ -58,6 +58,9 @@ class JasonGPT:
         system_prompt = ' '.join([system_prompt_root, jason_basic_info, jason_portfolio, meta_data])
         return system_prompt
     
+    def _is_valid_response(self, response):
+        return response is not None and len(response) > 0
+    
     def process_query_logic(self, query):
         try:
             prev_conversation = self.render_conversation()
@@ -68,7 +71,7 @@ class JasonGPT:
             
             response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
-                messages=self.create_chat_history_prompt() + [{"role": "user", "content": query + self.query_prompt}],
+                messages=self.create_chat_history_prompt() + [{"role": "user", "content": query + ' ' + self.query_prompt}],
                 max_tokens=self.max_tokens,
                 temperature=self.temperature,
                 stream=True
@@ -79,7 +82,7 @@ class JasonGPT:
             for chunk in response:
                 response_str = chunk['choices'][0].get('delta', {}).get('content')
                 
-                if response_str is not None:
+                if self._is_valid_response(response_str):
                     finish_reason = chunk['choices'][0].get('finish_reason')
                     
                     if finish_reason == 'length':
@@ -157,5 +160,5 @@ def process_query():
     return Response(generate_response(query), mimetype='text/plain')
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 5050))
     app.run(host="0.0.0.0", port=port, debug=True)
