@@ -2,9 +2,10 @@
 
 **Hi, I'm Jason 🤠**
 
-I am a 2nd year Robotics grad student at the University of Pennsylvania with a knack for building software that interacts with our physical world.
+I am a 2nd year Robotics grad student at the University of Pennsylvania.
 
-- I am currently working on deep learning and computer vision for autonomous trucks at Kodiak Robotics.
+**Currently...**
+- I am working on deep learning and computer vision for autonomous trucks at Kodiak Robotics.
 - I am also part of the Lifelong Machine Learning Group at GRASP, where I build machine learning systems for household robots and embodied autonomy.
 - Seeking full-time software engineering roles starting Spring 2024.
 
