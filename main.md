@@ -2,12 +2,17 @@
 
 **Hi, I'm Jason 🤠**
 
-I am a 2nd year Robotics grad student at the University of Pennsylvania.
+I am a 2nd year Robotics grad student at the University of Pennsylvania
 
-**Currently...**
-- I am working on deep learning and computer vision for autonomous trucks at Kodiak Robotics.
-- I am also part of the Lifelong Machine Learning Group at GRASP, where I build machine learning systems for household robots and embodied autonomy.
-- Seeking full-time software engineering roles starting Spring 2024.
+
+- I am currently leveraging large-language models to enable general embodied autonomy at the Lifelong Machine Learning Group at Penn GRASP.
+- In Summer 2023, I interned at Kodiak Robotics and worked on deep learning & vision models for autonomous trucking.
+- Seeking full-time software engineering roles starting Summer 2024.
+
+## **🔥BLOGS🔥**
+
+### [Series on LLM agents](https://jchunx.dev/blog/llm-agents)
+![gpt-chess](assets/gpt-chess-agent.png)
 
 ## **PROJECTS**
 
