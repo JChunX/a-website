@@ -11,7 +11,7 @@ I am a 2nd year Robotics grad student at the University of Pennsylvania
 
 ## **🔥BLOGS🔥**
 
-### [Series on LLM agents](https://jchunx.dev/blog/llm-agents)
+### [Series on LLM agents](blog/llm-agents)
 <img src="static/images/gpt-chess-agent.png" alt="chatgpt-chess" width="600"/>
 
 ## **PROJECTS**

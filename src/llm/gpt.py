@@ -20,7 +20,7 @@ class JasonGPT:
         self.system_prompt = self.create_system_prompt()
         self.query_prompt = Path('llm_prompts/query_prompt.txt').read_text()
         self.max_tokens = 300
-        self.temperature = 0.4
+        self.temperature = 0.7
         self.max_history = 5
         self.reset()
         

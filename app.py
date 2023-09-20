@@ -35,6 +35,12 @@ def process_query():
     # Process the query and yield the result in text
     return Response(generate_response(query), mimetype='text/plain')
 
+@app.route('/blog/llm-agents')
+def llm_agents_blog():
+    content = read_markdown_file('blog/llm-agents-landing-page.md')
+    html = markdown.markdown(content)
+    return render_template('blog.html', content=html)
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5050))
     app.run(host="0.0.0.0", port=port, debug=True)

@@ -1,6 +1,6 @@
-# LLM Agents
+# GPT Agents
 
-By now, you have probably seen a **to0O0on** of LLM papers like [Voyager](https://voyager.minedojo.org/), [SayCan](https://say-can.github.io), [Inner Monologue](https://innermonologue.github.io/) making waves with their impressive results. 
+By now, you have probably seen a **ton** of LLM papers like [Voyager](https://voyager.minedojo.org/), [SayCan](https://say-can.github.io), [Inner Monologue](https://innermonologue.github.io/) making waves with their impressive results. 
 
 Looks cool right? Let's replicate some of their features and see what we can do with them! Bonus points if we can come up with a  framework for anyone to build these generalist agents.
 
@@ -8,11 +8,11 @@ Looks cool right? Let's replicate some of their features and see what we can do 
 
 Ever since God has brought light to this world (November 30, 2022, ChatGPT release day), people on `r/AnarchyChess` have been coaxing GPT to play chess with them, with hilarious results.
 
-![Alt text](image-1.png)
+<img src="/static/images/gpt-chess-fail.png" alt="chatgpt-chess-fail" width="600"/>
 
 Can we do better with a bit of (prompt) engineering? Stay tuned to find out!
 
-### [Part 1. Blank Slate](https://jchunx.dev/blog/llm-agents/llm-chess-1)
+### [Part 1. Blank Slate](llm-chess-1)
 
 ## Deploying LLMs on a real robot
 
