@@ -9,10 +9,10 @@ I am a 2nd year Robotics grad student at the University of Pennsylvania
 - In Summer 2023, I interned at Kodiak Robotics and worked on deep learning & vision models for autonomous trucking.
 - Seeking full-time software engineering roles starting Summer 2024.
 
-## **🔥BLOGS🔥**
+<!-- ## **🔥BLOGS🔥**
 
 ### [Series on LLM agents](blog/llm-agents)
-<img src="static/images/gpt-chess-agent.png" alt="chatgpt-chess" width="600"/>
+<img src="static/images/gpt-chess-agent.png" alt="chatgpt-chess" width="600"/> -->
 
 ## **PROJECTS**
 
