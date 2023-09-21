@@ -10,7 +10,7 @@ Looks cool right? Let's replicate some of their features and see what we can do 
 
 ## Playing Chess with GPT
 
-Ever since God has brought light to this world (November 30, 2022, ChatGPT release day), people on `r/AnarchyChess` have been coaxing GPT to play chess with them, with hilarious results.
+Ever since God brought light to this world (November 30, 2022, ChatGPT release day), people on `r/AnarchyChess` have been coaxing GPT to play chess with them, with hilarious results.
 
 <img src="/static/images/gpt-chess-fail.png" alt="chatgpt-chess-fail" width="300"/>
 
