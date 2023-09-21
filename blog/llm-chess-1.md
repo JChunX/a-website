@@ -12,7 +12,7 @@ At it's core, chess is about  understanding game dynamics, identifying threats a
 
 ## An Agent is Born
 
-Starting from scratch, we create an `agent` and an `environment`. The agent is ChatGPT, and the environment is a chess simulator. We setup simple wrapper classese `OpenAILLM` and `ChessEnv` to interface with `openai` and `python-chess` respectively.
+Starting from scratch, we create an `agent` and an `environment`. The agent is ChatGPT, and the environment is a chess simulator. We setup simple wrapper classes `OpenAILLM` and `ChessEnv` to interface with `openai` and `python-chess` respectively.
 
 Prior work (source: `r/AnarchyChess`) has shown that GPT is not particularly great at keeping track of piece or even making legal moves. So we prompt it with the availble moves using the engine.
 
