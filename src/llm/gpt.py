@@ -2,13 +2,7 @@ import time
 from pathlib import Path
 
 import openai
-
-
-# Function to read Markdown file
-def read_markdown_file(filename):
-    with open(filename, 'r') as file:
-        content = file.read()
-    return content
+from src.utils import read_markdown_file
 
 
 class JasonGPT:

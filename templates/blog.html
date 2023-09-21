@@ -12,6 +12,7 @@
     </script>
     <title>Jason's Website</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='pygments-codestyle.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
 </head>
@@ -24,31 +25,7 @@
                 <img src="/static/images/jason.png" width="50" style="margin-left: 20px;" />
             </a>  
         </h1>
-        <p>
-            Robotics @ Penn GRASP
-            <br/>
 
-            Deep Learning / Computer Vision Intern @ 
-            <a href="https://kodiak.ai" target="_blank">Kodiak Robotics</a>
-        </p>
-        <p>
-            Email: 
-            <a href="mailto:jchunx@seas.upenn.edu" target="_blank">jchunx@seas.upenn.edu</a>
-            <br/>
-
-            LinkedIn: 
-            <a href="https://linkedin.com/in/jia-chun-xie" target="_blank">Jason Xie</a>
-            <br/>
-
-            GitHub: 
-            <a href="https://github.com/JChunX" target="_blank">JChunX</a>
-
-            <br/>
-
-            Resume:
-            <a href="https://www.dropbox.com/scl/fi/bo6ph14iwert8cgpyb12f/jasonxie_resume.pdf?rlkey=fn6s4hg6z291am5prhi7bb2zt&dl=0" target="_blank">PDF</a>
-            
-        </p>
     </div>
 
     <div class="markdown-content">{{ content|safe }}</div>

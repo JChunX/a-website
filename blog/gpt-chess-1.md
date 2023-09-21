@@ -1,1 +1,0 @@
-# Playing chess with GPT

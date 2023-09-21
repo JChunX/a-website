@@ -5,13 +5,8 @@ import markdown
 from flask import Flask, Response, render_template, request
 
 from src.llm.gpt import JasonGPT
-
-
-# Function to read Markdown file
-def read_markdown_file(filename):
-    with open(filename, 'r') as file:
-        content = file.read()
-    return content
+from src.utils import read_markdown_file
+from pygments.formatters import HtmlFormatter
 
 app = Flask(__name__)
 gpt = JasonGPT()
@@ -39,6 +34,12 @@ def process_query():
 def llm_agents_blog():
     content = read_markdown_file('blog/llm-agents-landing-page.md')
     html = markdown.markdown(content)
+    return render_template('blog.html', content=html)
+
+@app.route('/blog/llm-agents/llm-chess-1')
+def llm_chess_1():
+    content = read_markdown_file('blog/llm-chess-1.md')
+    html = markdown.markdown(content, extensions=['fenced_code', 'codehilite'])
     return render_template('blog.html', content=html)
 
 if __name__ == '__main__':

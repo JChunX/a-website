@@ -70,3 +70,28 @@ h1, h2, h3, h4, h5, h6 {
 img {
   border-radius: 10px;
 }
+
+@font-face {
+  font-family: 'SFMono-Medium';
+  src: url('/static/fonts/SFMono-Medium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+code {
+  background-color: #eee;
+  border: 0px solid #999;
+  padding: 1px 2px;
+  font-size: 90%; 
+  font-family: SFMono-Medium, "Liberation Mono", monospace;
+  border-radius: 3px;
+}
+
+pre > code {
+  background-color: #eee;
+  border: 0px solid #999;
+  display: block;
+  padding: 20px;
+  font-family: SFMono-Medium, "Liberation Mono", monospace;
+  border-radius: 3px;
+}
