@@ -27,6 +27,7 @@ I am a 2nd year Robotics grad student at the University of Pennsylvania.
 <img src="https://github.com/JChunX/CUDA-Path-Tracer/raw/main/img/bunny.png" alt="Stanford Rabbit" width="600"/>
 
 **Technologies:** C++, CUDA, OpenGL
+
 **[🔗 Github](https://github.com/JChunX/CUDA-Path-Tracer)**
 
 A path tracer written in CUDA.
@@ -84,6 +85,7 @@ Implement baseline techniques and evaluate tasks on new methods.
 <img src="static/images/vulcan_grass.gif" alt="grass shader" width="600"/>
 
 **Technologies:** C++, Vulkan, GLSL
+
 **[🔗 Github](https://github.com/JChunX/Vulkan-Grass-Rendering)**
 
 A grass simulation in Vulkan.
