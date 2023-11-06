@@ -2,11 +2,17 @@
 
 **Hi, I'm Jason 🤠**
 
-I am a 2nd year Robotics grad student at the University of Pennsylvania
+I am a 2nd year Robotics grad student at the University of Pennsylvania.
 
 
-- I am currently leveraging large-language models to enable general embodied autonomy at the Lifelong Machine Learning Group at Penn GRASP.
+- I am currently... 
+  - Leveraging large-language models to enable general embodied autonomy at Penn GRASP.
+  - Developing 3D pre-trained vision encoders for robotics.
+  - Working on WebGPU conditional diffusion models for image generation.
+  - Training robots in large-scale simulations for outdoor tasks.
+  
 - In Summer 2023, I interned at Kodiak Robotics and worked on deep learning & vision models for autonomous trucking.
+  
 - Seeking full-time software engineering roles starting Summer 2024.
 
 <!-- ## **🔥BLOGS🔥**
@@ -15,6 +21,64 @@ I am a 2nd year Robotics grad student at the University of Pennsylvania
 <img src="static/images/gpt-chess-agent.png" alt="chatgpt-chess" width="600"/> -->
 
 ## **PROJECTS**
+
+### **CUDA Path Tracer** - Fall 2023
+<img src="https://github.com/JChunX/CUDA-Path-Tracer/raw/main/img/bunny.png" alt="Stanford Rabbit" width="600"/>
+
+**Technologies:** C++, CUDA, OpenGL
+**[🔗 Github](https://github.com/JChunX/CUDA-Path-Tracer)**
+
+A path tracer written in CUDA.
+
+In this project, I take advantage of the massively parallel processing power of GPU to render photorealisitc images. The end result is a interactive path tracer featuring specular and diffuse shading, along with several optimizations to improve performance.
+
+### Scalable Robot Learning - Fall 2023, Ongoing
+
+<img src="static/images/collage.png" alt="collage of robot learning in sim" width="600"/>
+
+**Technologies:** PyTorch, ROS2, Isaac Sim, Generative AI, Reinforcement Learning
+
+Currently, robotics paradigms maintain a ridgid stack of perception, planning, and control algorithms. While conceptually simple, it requires extensive tuning to achieve acceptable performance.
+
+Departing from conventional wisdom, we envision robots of the future as end-to-end systems that achieves high performance through data-driven learning from massive amounts of synthetic data and real-world rollouts.
+
+Towards that goal, we are creating a robust simulation and machine learning stack to tackle embodied autonomy tasks (parking lot striping) at scale.
+
+**Features:**
+
+- [x] **Asset-Level Domain Randomization**
+Infinite variations of outdoor environments through wave-function collapse based procedural generation.
+
+- [ ] **Controllable Diffusion**
+Using simulation ground-truths, generate a dataset of scenes with varying environment conditions.
+- [ ] **Akhara**
+IsaacSim Gym environments for embodied agents.
+
+### **Embodied AGI** - Fall 2023, Ongoing
+<img src="static/images/penngi.png" alt="penngi" width="600"/>
+
+**Technologies:** PyTorch, Multi-Modal LLMs, Mujoco
+
+We are interested in applying multi-modal foundation models towards the goal of general embodied autonomy. Rather than evaluating benchmarks in sim, we seek to validate our models in the real world using a mobile manipulator.
+
+**Progress:**
+
+- [x] **Robotics Stack**
+Motion planning, control, data logging, and visualization. Implemented communication protocols betwen robot and inference server in WebSockets.
+- [ ] **Integration and Safety Checks**
+Verify safety limits in sim (Mujoco), integrate components on real robot.
+- [ ] **Foundation Models**
+Implement baseline techniques and evaluate tasks on new methods. 
+
+### **Vulcan Grass Shader** - Fall 2023
+<img src="static/images/vulcan_grass.gif" alt="grass shader" width="600"/>
+
+**Technologies:** C++, Vulkan, GLSL
+**[🔗 Github](https://github.com/JChunX/Vulkan-Grass-Rendering)**
+
+A grass simulation in Vulkan.
+
+This project implements the paper *Responsive Real-Time Grass Rendering for General 3D Scenes*, including Bezier curve grass blades, physical models for grass motion, and culling.
 
 ### **F1Tenth Autonomous Racing** - Spring 2023
 <img src="static/images/drag_race.jpeg" alt="three f1tenth vehicles lined up side-by-side on the track" width="600"/>
