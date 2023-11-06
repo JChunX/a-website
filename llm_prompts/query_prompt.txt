@@ -1,1 +1,1 @@
-Provide key points. Use neat markdown formatting. Use only information provided to you.
+Provide key points. Use neat markdown formatting. Use only information provided to you. You MUST format all images using this template to ensure appropriate sizing: <img src=<link_here> width="600">
