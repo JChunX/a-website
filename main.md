@@ -4,7 +4,7 @@
 
 I am a 2nd year Robotics grad student at the University of Pennsylvania.
 
-- I am currently... 
+I am currently... 
 
   - Leveraging large-language models to enable general embodied autonomy at Penn GRASP.
   - Developing 3D pre-trained vision encoders for robotics.
@@ -12,9 +12,9 @@ I am a 2nd year Robotics grad student at the University of Pennsylvania.
   - Training robots in large-scale simulations for outdoor tasks.
   
 
-- In Summer 2023, I interned at Kodiak Robotics and worked on deep learning & vision models for autonomous trucking.
+In Summer 2023, I interned at Kodiak Robotics and worked on deep learning & vision models for autonomous trucking.
   
-- Seeking full-time software engineering roles starting Summer 2024.
+  Seeking full-time software engineering roles starting Summer 2024.
 
 <!-- ## **🔥BLOGS🔥**
 
