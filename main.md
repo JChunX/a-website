@@ -4,13 +4,14 @@
 
 I am a 2nd year Robotics grad student at the University of Pennsylvania.
 
-
 - I am currently... 
+
   - Leveraging large-language models to enable general embodied autonomy at Penn GRASP.
   - Developing 3D pre-trained vision encoders for robotics.
   - Working on WebGPU conditional diffusion models for image generation.
   - Training robots in large-scale simulations for outdoor tasks.
   
+
 - In Summer 2023, I interned at Kodiak Robotics and worked on deep learning & vision models for autonomous trucking.
   
 - Seeking full-time software engineering roles starting Summer 2024.
@@ -47,11 +48,15 @@ Towards that goal, we are creating a robust simulation and machine learning stac
 **Features:**
 
 - [x] **Asset-Level Domain Randomization**
+
 Infinite variations of outdoor environments through wave-function collapse based procedural generation.
 
 - [ ] **Controllable Diffusion**
+
 Using simulation ground-truths, generate a dataset of scenes with varying environment conditions.
+
 - [ ] **Akhara**
+
 IsaacSim Gym environments for embodied agents.
 
 ### **Embodied AGI** - Fall 2023, Ongoing
@@ -64,10 +69,15 @@ We are interested in applying multi-modal foundation models towards the goal of 
 **Progress:**
 
 - [x] **Robotics Stack**
+
 Motion planning, control, data logging, and visualization. Implemented communication protocols betwen robot and inference server in WebSockets.
+
 - [ ] **Integration and Safety Checks**
+
 Verify safety limits in sim (Mujoco), integrate components on real robot.
+
 - [ ] **Foundation Models**
+
 Implement baseline techniques and evaluate tasks on new methods. 
 
 ### **Vulcan Grass Shader** - Fall 2023
