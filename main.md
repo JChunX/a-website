@@ -61,7 +61,7 @@ Using simulation ground-truths, generate a dataset of scenes with varying enviro
 IsaacSim Gym environments for embodied agents.
 
 ### **Embodied AGI** - Fall 2023, Ongoing
-<img src="static/images/penngi.png" alt="penngi" width="600"/>
+<img src="static/images/penngi.png" alt="an embodied robotic agent" width="600"/>
 
 **Technologies:** PyTorch, Multi-Modal LLMs, Mujoco
 
