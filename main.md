@@ -2,7 +2,7 @@
 
 **Hi, I'm Jason 🤠**
 
-I am a 2nd year Robotics grad student at the University of Pennsylvania.
+I am a Robotics grad student at the University of Pennsylvania.
 
 I am currently... 
 
@@ -23,6 +23,15 @@ In Summer 2023, I interned at Kodiak Robotics and worked on deep learning & visi
 
 ## **PROJECTS**
 
+### **WebGPU Conditional Stable Diffusion** - Fall 2023
+<img src="static/images/cn_scribble_in_out.png" alt="webgpu diffusion" width="600"/>
+
+**Technologies:** WebGPU, JavaScript, tinygrad
+
+**[🔗 Github](https://github.com/JChunX/web-control-net)**
+
+A first-ever implementation of ControlNet diffusion running locally in the browser. Re-wrote ControlNet using tinygrad and compiled to WebGPU. Optimized for performance through fp16 inference and compute pipeline overhead reduction.
+
 ### **CUDA Path Tracer** - Fall 2023
 <img src="https://github.com/JChunX/CUDA-Path-Tracer/raw/main/img/bunny.png" alt="Stanford Rabbit" width="600"/>
 
@@ -34,6 +43,7 @@ A path tracer written in CUDA.
 
 In this project, I take advantage of the massively parallel processing power of GPU to render photorealisitc images. The end result is a interactive path tracer featuring specular and diffuse shading, along with several optimizations to improve performance.
 
+<!-- 
 ### Scalable Robot Learning - Fall 2023, Ongoing
 
 <img src="static/images/collage.png" alt="collage of robot learning in sim" width="600"/>
@@ -56,7 +66,7 @@ Infinite variations of outdoor environments through wave-function collapse based
 
 Using simulation ground-truths, generate a dataset of scenes with varying environment conditions.
 
-- [ ] **Akhara**
+- [ ] **Akhara** -->
 
 IsaacSim Gym environments for embodied agents.
 
