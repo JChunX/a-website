@@ -91,29 +91,6 @@
                 $('#loading-icon').show();
         
                 try {
-                    // let response = await fetch('/query', {
-                    //     method: 'POST',
-                    //     headers: {
-                    //         'Content-Type': 'application/x-www-form-urlencoded'
-                    //     },
-                    //     body: 'query=' + encodeURIComponent(query),
-                    // });
-        
-                    // let reader = response.body.getReader();
-                    // let decoder = new TextDecoder();
-        
-                    // let result = "";
-        
-                    // while (true) {
-                    //     let { value, done } = await reader.read();
-        
-                    //     if (done) break;
-        
-                    //     let chunk = decoder.decode(value);
-
-                    //     $('#query-result').html(chunk);
-                        
-                    // }
                     let response = await fetch('/query', {
                         method: 'POST',
                         headers: {
@@ -124,13 +101,28 @@
                     let reader = response.body.getReader();
                     let decoder = new TextDecoder();
                     let lastMessageElement = null;
+                    let prev_len = null;
                     while (true) {
                         let { value, done } = await reader.read();
                         if (done) break;
                         let chunk = decoder.decode(value);
+                        console.log(value)
+                        let len = value.length;
+
+                        // strange hack required to prevent text duplication
+                        if (prev_len == null) {
+                            prev_len = len;
+                        }
+                        else if ((len-prev_len)/prev_len > 1.5) {
+                            break;
+                        }
+                        else {
+                            prev_len = len;
+                        }
+                        console.log(chunk);
                         if (lastMessageElement === null) {
                             // Create a new message element for the first chunk
-                            lastMessageElement = $('<p>').html(chunk);
+                            lastMessageElement = $('<div class="message"></div>').html(chunk);
                             $('#query-result').append(lastMessageElement);
                         } else {
                             // Update the text of the last message element for subsequent chunks

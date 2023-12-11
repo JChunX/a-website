@@ -13,7 +13,8 @@ gpt = JasonGPT()
 
 def generate_response(query):
     for response in gpt.process_query_logic(query):
-        yield markdown.markdown(response)
+        mkd = markdown.markdown(response)
+        yield mkd
 
 # Route for the home page
 @app.route('/')
