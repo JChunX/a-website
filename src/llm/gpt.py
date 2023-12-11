@@ -92,8 +92,6 @@ class JasonGPT:
                     i += 1
                     
                     if not yield_hold:
-                        print("============================")
-                        print(response_stream)
                         yield response_stream
                     
             self.add_to_chat_history(query, current_response)
