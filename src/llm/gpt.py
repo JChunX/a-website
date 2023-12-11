@@ -10,7 +10,7 @@ class JasonGPT:
     def __init__(self):
         self.gpt_name = 'JasonGPT🤖'
         self.user_alias = 'You'
-        self.knowledge_cutoff_date = '2023-05-14'
+        self.knowledge_cutoff_date = '2023-12-11'
         self.system_prompt = self.create_system_prompt()
         self.query_prompt = Path('llm_prompts/query_prompt.txt').read_text()
         self.max_tokens = 300

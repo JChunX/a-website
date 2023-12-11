@@ -46,7 +46,7 @@
             <br/>
 
             Resume:
-            <a href="https://www.dropbox.com/scl/fi/bo6ph14iwert8cgpyb12f/jasonxie_resume.pdf?rlkey=fn6s4hg6z291am5prhi7bb2zt&dl=0" target="_blank">PDF</a>
+            <a href="https://www.dropbox.com/scl/fi/pddje7jv0lt4t5pyzyxgt/jasonxie_resume.pdf?rlkey=w8j7zmg7bd5e0ys6w77inf089&dl=0" target="_blank">PDF</a>
             
         </p>
     </div>
@@ -58,9 +58,9 @@
             <br/>
             Q: Is Jason <b>a good fit</b> for role X?
             <br/>
-            Q: Show me a <b>photo</b> of Jason's F1Tenth project.
+            Q: Show me a <b>photo</b> of Jason's Stable Diffusion Project.
             <br/>
-            Q: Tell me about a project where Jason <b>used ROS2</b>.
+            Q: Tell me about a project where Jason <b>used PyTorch</b>.
             <br/>
             
             <small>Note: LLMs like JasonGPT may produce inaccurate responses.</small>
@@ -91,6 +91,29 @@
                 $('#loading-icon').show();
         
                 try {
+                    // let response = await fetch('/query', {
+                    //     method: 'POST',
+                    //     headers: {
+                    //         'Content-Type': 'application/x-www-form-urlencoded'
+                    //     },
+                    //     body: 'query=' + encodeURIComponent(query),
+                    // });
+        
+                    // let reader = response.body.getReader();
+                    // let decoder = new TextDecoder();
+        
+                    // let result = "";
+        
+                    // while (true) {
+                    //     let { value, done } = await reader.read();
+        
+                    //     if (done) break;
+        
+                    //     let chunk = decoder.decode(value);
+
+                    //     $('#query-result').html(chunk);
+                        
+                    // }
                     let response = await fetch('/query', {
                         method: 'POST',
                         headers: {
@@ -98,22 +121,21 @@
                         },
                         body: 'query=' + encodeURIComponent(query),
                     });
-        
                     let reader = response.body.getReader();
                     let decoder = new TextDecoder();
-        
-                    let result = "";
-        
+                    let lastMessageElement = null;
                     while (true) {
                         let { value, done } = await reader.read();
-        
                         if (done) break;
-        
                         let chunk = decoder.decode(value);
-
-                        $('#query-result').html(chunk);
-                        
-
+                        if (lastMessageElement === null) {
+                            // Create a new message element for the first chunk
+                            lastMessageElement = $('<p>').html(chunk);
+                            $('#query-result').append(lastMessageElement);
+                        } else {
+                            // Update the text of the last message element for subsequent chunks
+                            lastMessageElement.html(chunk);
+                        }
                     }
                 } catch (error) {
                     console.error('Error:', error);
