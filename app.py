@@ -29,7 +29,9 @@ def home():
 def process_query():
     query = request.form['query']
     # Process the query and yield the result in text
-    return Response(generate_response(query), mimetype='text/plain')
+    response = Response(generate_response(query), mimetype='text/plain')
+
+    return response
 
 @app.route('/blog/llm-agents')
 def llm_agents_blog():

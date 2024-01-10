@@ -93,6 +93,7 @@ class JasonGPT:
                     
                     if not yield_hold:
                         yield response_stream
+
                     
             self.add_to_chat_history(query, current_response)
                 

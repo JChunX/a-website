@@ -80,6 +80,7 @@
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
+
             // Handle form submission using AJAX
             $('#query-form').submit(async function(event) {
                 event.preventDefault(); // Prevent the form from submitting normally
@@ -101,33 +102,17 @@
                     let reader = response.body.getReader();
                     let decoder = new TextDecoder();
                     let lastMessageElement = null;
-                    let prev_len = null;
                     while (true) {
                         let { value, done } = await reader.read();
                         if (done) break;
                         let chunk = decoder.decode(value);
 
-                        let len = value.length;
-
-                        // strange hack required to prevent text duplication
-                        if (prev_len == null) {
-                            prev_len = len;
-                        }
-                        else if ((len-prev_len)/prev_len > 1.5) {
-                            break;
-                        }
-                        else {
-                            prev_len = len;
-                        }
-
-                        if (lastMessageElement === null) {
-                            // Create a new message element for the first chunk
-                            lastMessageElement = $('<div class="message"></div>').html(chunk);
-                            $('#query-result').append(lastMessageElement);
-                        } else {
-                            // Update the text of the last message element for subsequent chunks
-                            lastMessageElement.html(chunk);
-                        }
+                        lastMessageElement = $('<div class="message"></div>').html(chunk);
+                        // set #query-result to the last message element
+                        $('#query-result').empty();
+                        $('#query-result').append(lastMessageElement);
+                        console.log('====================');
+                        console.log(chunk);
                     }
                 } catch (error) {
                     console.error('Error:', error);

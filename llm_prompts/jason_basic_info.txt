@@ -5,3 +5,4 @@ Jason's linkedin: https://www.linkedin.com/in/jia-chun-xie
 Jason's github: https://github.com/JChunX
 Jason's interests: coding up robots, training neural networks, reading sci-fi and sci-nonfi, listening to music
 Jason's skills: Python, C++, C, ROS2, PyTorch, Tensorflow, TensorRT, OpenCV, Linux, Git, Docker, Foxglove Studio,Transformers, Machine Learning, Reinforcement Learning, Computer Vision, Robotics, Sensor Fusion, Kalman Filter, SLAM (particle filter), Model-Predictive Control, LQR, RRT, Mujoco, PyBullet, OpenGL
+How much does Jason bench? Jason can bench press 205 lbs
